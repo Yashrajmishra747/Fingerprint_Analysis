@@ -277,7 +277,12 @@ public class MainActivity extends AppCompatActivity {
             alertDialog.setButton("Mail", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-
+                    Intent intent = new Intent(Intent.ACTION_SEND);
+                    intent.setType("plain/text");
+                    intent.putExtra(Intent.EXTRA_EMAIL, new String[] { "mishra.yashrajs@gmail.com" });
+                    intent.putExtra(Intent.EXTRA_SUBJECT, "Please help me");
+                  //  intent.putExtra(Intent.EXTRA_TEXT, "mail body");
+                    startActivity(Intent.createChooser(intent, ""));
                 }
             });
 
